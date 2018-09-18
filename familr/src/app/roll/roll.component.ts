@@ -15,7 +15,7 @@ export class RollComponent {
   roll(ammount, sides){
  
   this.result =  ammount * (Math.floor(Math.random() * sides) + 1)
-  console.log('fuck')
+
   console.log(this.result)
     
   }
