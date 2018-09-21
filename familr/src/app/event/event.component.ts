@@ -7,38 +7,67 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './event.component.html',
   styleUrls: ['./event.component.css']
 })
-export class EventComponent implements OnInit {
-  _id:number;
-  text:string;
+export class EventComponent  {
+  events =[
   
-  monsters:{
-    
-    _id:number;
-    name:string;
-    ammount: number,
-    
+  {
+    _id: 1,
+    text: "some bird people appear",
+    monsters:{
+        
+        exist:true,
+        name: "Arracockra",
+        roll:[1,4,1]
+    }
+ },
+ {
+     _id: 2,
+     text: "some bird people appear",
+     monsters:{
+         exist:true,
+         name: "Arracockra",
+         roll:[1,4,1]
+     }
+  },
+  {
+     _id: 3,
+     text: "some bird people appear",
+     monsters:{
+         exist:true,
+         name: "Arracockra",
+         roll:[1,4,1]
+     }
+  },
+  {
+     _id: 4,
+     text: "some bird people appear",
+     monsters:{
+         exist:true,
+         name: "Arracockra",
+         roll:[1,4,1]
+     }
+  },
+  {
+     _id: 5,
+     text: "some bird people appear",
+     monsters:{
+         exist:true,
+         name: "Arracockra",
+         roll:[1,4,1]
+     }
   }
+]
+  
 
-  makeEvents(){
-    for (let i = 0; i <10; i++) {
-    
-      let current = new EventComponent();
-      current._id = idCount;
-      current.text = "a skeleton oh noes"
-      // current.monsters.name = "skeleton" +idCount.toString
-      // current.monsters._id = 1;
-      // current.monsters.ammount = 1; 
-      idCount++;
-      events.push(current);
-      console.log(events)
-   }
-  }
+
+  
   
   constructor() { }
 
-  ngOnInit() {
-  }
+  
 
 }
-let idCount = 1;
-let events = [];
+
+
+
+

@@ -1,5 +1,9 @@
+import { BeachService } from './../beach.service';
+import { RollService } from './../roll.service';
+import { EventComponent } from './../event/event.component';
+
 import { RollComponent } from './../roll/roll.component';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 
 
 @Component({
@@ -7,32 +11,24 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './day.component.html',
   styleUrls: ['./day.component.css']
 })
+
 export class DayComponent  {
-  results:any[] = [];
-  rolls:RollComponent[] = [];
- 
+  rollResults: any;
+
+  constructor(private _beachService: BeachService){};
   
-  compileDay(){
 
-    for( let i = 0; i< 3; i++){
-      if (this.results.length>2){
-        this.results=[];
-        }
-      this.rolls[i] = new RollComponent;
-      this.rolls[i].roll(1,20);
-      if(this.rolls[i].result>=17){
-        this.results.push(this.rolls[i].result)}
-        else{this.results.push("Nothing Happened Today")}
-   
+ 
+    getBeach(){
+      this.rollResults = [];
+      this.rollResults = (this._beachService.getBeach())
+      console.log(this.rollResults);
 
-     
+    }
 
-}
+ 
+    
   }
 
-  constructor() { }
 
-  
-
-}
 

@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+
+import { Component,} from '@angular/core';
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,5 +10,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'familr';
+  private apiUrl = `http://dnd5eapi.co/api/`;
+  data: any = {};
+  
+
+  constructor(){
+    console.log("Greetings API should work soon");
+   
+  }
 }
 
