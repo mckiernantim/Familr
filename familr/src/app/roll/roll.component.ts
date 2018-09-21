@@ -1,24 +1,26 @@
+import { RollService } from './../roll.service';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-roll',
   templateUrl: './roll.component.html',
   styleUrls: ['./roll.component.css']
 })
-export class RollComponent {
+export class RollComponent implements OnInit{
+  result: number;
+  constructor(private _rollService: RollService){}
 
- result:number;
- sides:number;
- ammount:number;
- constructor(){}
 
-  roll(ammount, sides){
- 
-  this.result =  ammount * (Math.floor(Math.random() * sides) + 1)
-
-  console.log(this.result)
-    
+  roll20(){
+   this.result =  this._rollService.roll20();
   }
+
+
+  ngOnInit(){
+
+ }
+ 
 
 }
 
