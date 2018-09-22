@@ -10,6 +10,7 @@ import { Component,} from '@angular/core';
 })
 export class AppComponent {
   title = 'familr';
+  
   private apiUrl = `http://dnd5eapi.co/api/`;
   data: any = {};
   

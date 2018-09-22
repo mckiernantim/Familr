@@ -6,6 +6,7 @@ import { RollComponent } from './roll/roll.component';
 import { DayComponent } from './day/day.component';
 import { EventComponent } from './event/event.component';
 import { BeachService } from './beach.service';
+import { MonsterComponent } from './monster/monster.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { BeachService } from './beach.service';
     RollComponent,
     DayComponent,
     EventComponent,
+    MonsterComponent,
 
     
   

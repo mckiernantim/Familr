@@ -1,9 +1,12 @@
-<p>
+
+<h2>The Party is on day {{this.dayTracker}}
+</h2>
 <button (click)="getBeach()">Make a day</button>
-</p>
+
 <ul>
   <li *ngFor="let result of this.rollResults">
-    {{i}} {{result}}
+    <h2>{{result.title || result}}</h2>
+     <p>{{result.text}}</p>
   </li>
 </ul>
   
