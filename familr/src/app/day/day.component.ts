@@ -14,12 +14,14 @@ import { Component, OnInit, NgModule } from '@angular/core';
 
 export class DayComponent  {
   rollResults: any;
+  dayTracker:number = 1;
 
   constructor(private _beachService: BeachService){};
   
 
  
     getBeach(){
+      this.dayTracker++
       this.rollResults = [];
       this.rollResults = (this._beachService.getBeach())
       console.log(this.rollResults);
