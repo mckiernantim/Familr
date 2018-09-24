@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./monster.component.css']
 })
 export class MonsterComponent implements OnInit {
+  data:any = [];
 
   constructor() { }
 
