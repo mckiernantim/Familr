@@ -127,7 +127,8 @@ export const beachEvents: Event[] = [
                 name:'Chwinga',
                 rolls:1,
                 die:1,
-             extra:0} ,
+             extra:0
+            } ,
    
         { id: 12,
         title: 'Chwinga',

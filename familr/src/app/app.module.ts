@@ -7,6 +7,9 @@ import { DayComponent } from './day/day.component';
 import { EventComponent } from './event/event.component';
 import { BeachService } from './beach.service';
 import { MonsterComponent } from './monster/monster.component';
+import { CreatureComponent } from './creature/creature.component';
+import { WeatherComponent } from './weather/weather.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -16,6 +19,8 @@ import { MonsterComponent } from './monster/monster.component';
     DayComponent,
     EventComponent,
     MonsterComponent,
+    CreatureComponent,
+    WeatherComponent,
 
     
   
@@ -23,6 +28,7 @@ import { MonsterComponent } from './monster/monster.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     
 
     

@@ -1,10 +1,17 @@
 
 <h2>The Party is on day {{this.dayTracker}}
 </h2>
-<button (click)="getBeach()">Make a day</button>
+<button (click)="getBeach(); getWeather();">Make a day</button>
+<div *ngIf="this.weather; else noWeather">
+  <h2>Today's Weather: {{this.weather.title}}</h2>
+  <p>{{this.weather.text}}</p>
+  </div>
+  <ng-template #noWeather>No weather yet, make a roll!</ng-template>
+
 
 <ul>
   <li *ngFor="let result of this.rollResults">
+    
     <h2>{{result.title || result}}</h2>
      <p>{{result.text}}</p>
   </li>

@@ -1,6 +1,6 @@
 
 import { Component,} from '@angular/core';
-
+import {HttpClientModule} from '@angular/common/http'
 
 
 @Component({
@@ -16,7 +16,7 @@ export class AppComponent {
   
 
   constructor(){
-    console.log("Greetings API should work soon");
+    
    
   }
 }
