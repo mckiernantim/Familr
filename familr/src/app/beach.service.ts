@@ -5,6 +5,7 @@ import { RollService } from './roll.service';
 import { Injectable } from '@angular/core';
 import { MonsterService } from './monster.service';
 
+
 interface monsterData  {
   obj: Object
 }
@@ -19,40 +20,46 @@ export class BeachService {
   response:any;
   beach = beachEvents
   rolls:any= {
-    monsters:[],
+    monsterName:"",
     monsterNumbers:[],
     dice:[],
+    monsters: [],
 }
 
   
   getBeach(){
     this.rolls.monsters = [];
     this.rolls.dice = [];
-    this.rolls.monsterName = "";
-   
-    
+    this.rolls.monsterName = null;
     for (let i = 0; i<3; i++){
+      var dieRoll=this._rollService.roll20()
+      console.log(dieRoll)
         
-        var dieRoll=this._rollService.roll20()
-        
-       if( dieRoll >= 16){
+       if( dieRoll >= 1){
+
          var x = this._rollService.roll100();
-         this.rolls.dice.push(x +" was rolled on the event table",this.beach[x-1])
-         this.rolls.monsterName =this.beach[x-1].name;
-    
-         if(this.rolls.monsterName){
+         this.rolls.dice.push(x +" was rolled on the event table", this.beach[x-1])
+         
+         this.rolls.monsterName = this.beach[x-1].name.replace(" ", "+");
+         console.log(this.rolls.monsterName  + "%%%%%%%%%%% going into the url finder")
+         var monsterStats = this.monsterService.getMonsterUrl(this.rolls.monsterName)
+         if (monsterStats != undefined){
+          console.log
+          this.rolls.monsters.push(monsterStats);
+        }
+        else
+          console.log("no URL for this monster")
+         
+        //     console.log(monsterUrl + "THIS IS THE URL")
+        //     var monsterStats = this.getCurrentMonster(monsterUrl);
+        //     console.log(monsterStats + "DATA BROUGHT BACK FROM API")
+            
+            console.log(monsterStats)
            
-          
-            var  currentMonsterUrl = this.monsterService.getMonsterUrl(this.rolls.monsterName);
-            console.log(currentMonsterUrl + "PLACE WHERE API WILL BE CALLED")
-            var monsterStats = this.getCurrentMonster();
-            console.log(monsterStats + "DATA BROUGHT BACK FROM API")
-            this.rolls.monsters.push(monsterStats)
-            console.log(this.response)
-        };
-       }else 
+        ;
+       }
        
-        this.rolls.dice.push("nothing happened");
+        // this.rolls.dice.push("nothing happened");
     };
 
     if(this.rolls.monsters){
@@ -61,16 +68,16 @@ export class BeachService {
     else 
       console.log("NO STATS TO SHOW %%%%%%%%%%%%%%%%%%%")
     // this.rolls.push(this.weatherService.getWeather());
-    return this.rolls 
+    return this.rolls.dice 
   };
 
-  getCurrentMonster(){
-    this.http.get<monsterData>('http://dnd5eapi.co/api/monsters/159')
-    .subscribe(data =>{
-      this.response = data;
-      console.log(data.name + " HP: " + data.hit_points + " Attacks: " data.actions[0].desc + "%%%%%%%%%%%%%%%% monste stats brought back from api")
-      return data
-   })
-  }
+//   getCurrentMonster(url){
+//     this.http.get<monsterData>(url)
+//     .subscribe(data =>{
+//       this.response = data;
+//       console.log(data.name + " HP: " + data.hit_points + " Attacks: " data.actions[0].desc + "%%%%%%%%%%%%%%%% monste stats brought back from api");
+//       return data
+//    })
+//   }
   
 }

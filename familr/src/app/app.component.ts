@@ -1,6 +1,39 @@
+import { HttpClient } from '@angular/common/http';
+import { BeachService } from './beach.service';
+import { Component, Injectable } from '@angular/core';
 
-import { Component,} from '@angular/core';
-import {HttpClientModule} from '@angular/common/http'
+// import { resolve } from 'path';
+
+@Injectable()
+class FindMonsterService {
+  providedIn: 'root'
+  apiRoot: string = 'http://dnd5eapi.co/api/monsters/?name='
+ 
+  results: Object[];
+  loading:boolean;
+
+  constructor(private http:HttpClient){
+    this.results= [];
+    this.loading = false;
+ 
+
+  }
+  // getMonsterUrl(monsterName: string){
+  //   let promise = new Promise((resolve, reject )=>{
+  //     let apiUrl = `${this.apiRoot}`+monsterName;
+  //     this.http.get(apiUrl)
+  //       .toPromise()
+  //       .then(
+  //         res => {
+  //           console.log(res.json())
+  //         }
+  //       )
+
+  //   });
+  //   return promise
+
+  // }
+}
 
 
 @Component({
@@ -9,15 +42,17 @@ import {HttpClientModule} from '@angular/common/http'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'familr';
   
-  private apiUrl = `http://dnd5eapi.co/api/`;
-  data: any = {};
+  title = 'familr';
+  // getUrl(name){
+  //   this.apiCall.getMonsterUrl(name)
+  // }
+
   
 
-  constructor(){
+  // constructor( private BeachService: BeachService, private apiCall:FindMonsterService){
     
    
-  }
+  // }
 }
 

@@ -1,7 +1,8 @@
 
 <h2>The Party is on day {{this.dayTracker}}
 </h2>
-<button (click)="getBeach(); getWeather();">Make a day</button>
+<button (click)="getBeach(); getWeather();">Beach Roll</button>
+<button (click)="getNoUndead(); getWeather();">No Undead Jungle</button>
 <div *ngIf="this.weather; else noWeather">
   <h2>Today's Weather: {{this.weather.title}}</h2>
   <p>{{this.weather.text}}</p>
@@ -13,6 +14,7 @@
   <li *ngFor="let result of this.rollResults">
     
     <h2>{{result.title || result}}</h2>
+    <button>Get Monsters</button>
      <p>{{result.text}}</p>
   </li>
 </ul>

@@ -569,7 +569,7 @@ export const beachEvents: Event[] = [
         title: 'Giant Lizards',
         text: 'Thecharacters come across 1d6 giant lizards sunning themselves on warm rocks.  The lizards pose no threat to the characters unless threatened and are to set in their ways to be tamed',
         monsters:true, 
-            name: "Giant Lizard",
+            name:"Giant Lizard",
             rolls:1,
             die:6,
             extra:0,

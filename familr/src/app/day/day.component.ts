@@ -1,3 +1,4 @@
+import { NoUndeadService} from './../no-undead.service';
 import { HttpClient } from '@angular/common/http';
 import { MonsterService } from './../monster.service';
 import { MonsterComponent } from './../monster/monster.component';
@@ -29,28 +30,43 @@ export class DayComponent  {
   
  
 
-  constructor(private _beachService: BeachService, private weatherService: WeatherService, private monsterService: MonsterService,  ){};
+  constructor(private _beachService: BeachService, private weatherService: WeatherService, private monsterService: MonsterService, private noUndeadService: NoUndeadService  ){};
   
 
     getWeather(){
       this.weather = this.weatherService.getWeather();
+      this.dayTracker++;
 
     }
+
     getBeach(){
-      this.dayTracker++
+      
       this.rollResults = [];
       this.nameResults = [];
       var returnedResults = (this._beachService.getBeach())
+      
       this.nameResults = returnedResults.monsterNames;
-      this.rollResults = returnedResults.dice;
+      console.log(this.nameResults)
+      this.rollResults = returnedResults;
       
       
       this.weather = this.getWeather()
-    
-      console.log(this.rollResults);
+  }
+    getNoUndead(){
       
+      this.rollResults = [];
+      this.nameResults = [];
+      var returnedResults = (this.noUndeadService.getNoUndead())
+     
+      
+      this.nameResults = returnedResults.monsterName;
+      this.rollResults = returnedResults;
+      
+      
+      
+      this.weather = this.getWeather()
     }
-   
+
 
  
 }
