@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "toacrawler",
+    "public": "public/dist/Familr",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
